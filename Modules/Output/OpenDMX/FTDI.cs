@@ -165,6 +165,9 @@ namespace VixenModules.Controller.OpenDMX
 
             //Free any used memory from write()
             Marshal.FreeHGlobal(transmitPtr);
+
+            //Close the serial port handle
+            FT_Close(handle);
         }
 
         public int write(uint handle, byte[] data, int length)
